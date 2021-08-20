@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
+import { from } from 'responselike';
+import Button from './component/Button';
+import data from './data.json'
+import Beasts from './component/Beasts';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export class App extends Component {
+  render() {
+    return (
+      <div>
+        <h1 style ={{color :'#FFE4C4' , background : "#6495ED" , textAlign: 'center'}}>Horened Beasts Gallery  </h1>
+        
+        {data.map(item=>{
+          return(
+            <Beasts image_url = {item.image_url} title ={item.title} description ={item.description}></Beasts>
+          )
+        })}
+         
+      
+      </div>
+    )
+  }
 }
 
-export default App;
+export default App
